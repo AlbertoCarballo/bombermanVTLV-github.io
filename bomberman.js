@@ -101,7 +101,7 @@ function pintarMapa() {
     
     function pintarBomba(x, y) {
         if (!bombaActiva && mapa[y][x] === 0) {
-            bombas.push({ x, y, timer: 3000 });
+            bombas.push({ x, y, timer: 5000 });
         }
         bombaActiva = true;
     }
@@ -139,7 +139,7 @@ function pintarMapa() {
     
     function crearExplosion(x, y) {
         const rangoExplosion = 1;
-        explosiones.push({ x, y, range: rangoExplosion, timer: 1500 });
+        explosiones.push({ x, y, range: rangoExplosion, timer: 3000 });
         sonidoExplosion.play();
         
         for (let i = 1; i <= rangoExplosion; i++) {
@@ -267,7 +267,7 @@ function pintarMapa() {
                 
                 explosion.timer -= 100;
                 
-                if (explosion.timer <= 0) {
+                if (explosion.timer === 0) {
                     explosiones.splice(index, 1);
                 }
             }
